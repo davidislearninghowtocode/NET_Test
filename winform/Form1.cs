@@ -1,16 +1,6 @@
 namespace SanPhamWinform
 {
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
         private void LoadData()
         {
             using (var context = new ProductDbContext())
@@ -19,6 +9,7 @@ namespace SanPhamWinform
                 dtgData.DataSource = list;
             }
         }
+
 
         private void ClearData()
         {
@@ -29,6 +20,8 @@ namespace SanPhamWinform
             if (cbState.Items.Count > 0)
                 cbState.SelectedIndex = 0;
         }
+
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -57,6 +50,8 @@ namespace SanPhamWinform
                 MessageBox.Show("Added data failed.");
             }
         }
+
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -87,6 +82,8 @@ namespace SanPhamWinform
                 MessageBox.Show("Error");
             }
         }
+
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -120,6 +117,9 @@ namespace SanPhamWinform
             }
         }
 
+
+
+
         private void btnReload_Click(object sender, EventArgs e)
         {
             LoadData();
@@ -136,6 +136,8 @@ namespace SanPhamWinform
             }
         }
 
+
+
         private void dtgData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dtgData.Rows[e.RowIndex].Cells[0].Value != null)
@@ -147,6 +149,8 @@ namespace SanPhamWinform
                 dtpOrder.Value = (DateTime)dtgData.Rows[e.RowIndex].Cells["OrderDate"].Value;
             }
         }
+
+
 
         private void dtgData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
